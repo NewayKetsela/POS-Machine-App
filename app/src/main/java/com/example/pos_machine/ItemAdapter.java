@@ -47,7 +47,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         public void onBindViewHolder(ViewHolder holder, int position) {
             Model currentItem = mCardList.get(position);
 
-            holder.mItemTextView.setText(String.format("%s%s", currentItem.getCode(), currentItem.get_item()));
+            holder.mItemTextView.setText(String.format("%s\t\t%s", currentItem.getCode(), currentItem.get_item()));
             holder.mQxUTextView.setText(String.format("%dx%s", currentItem.getQuantity(), currentItem.getUnit_price()));
             holder.mTotalTextView.setText(String.valueOf(currentItem.getCost()));
         }

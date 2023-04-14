@@ -74,7 +74,10 @@ public class PosSale extends Fragment {
                 else {
                     String itemName = db.searchItem(sale_code.getText().toString());
                     if (itemName != null && error) {
-                        sale_item.setText(itemName);
+                        String c = sale_code.getText().toString();
+                        int quen = Integer.parseInt(db.addItem1(c));
+                        double price = Double.parseDouble(db.addItem2(c));
+                        sale_item.setText("Item:"+itemName + "   unit:"+quen+"   Unit Price:"+price);
                     } else {
                         sale_item.setText("");
                         Toast.makeText(getContext(), "Item not found", Toast.LENGTH_SHORT).show();
@@ -115,9 +118,7 @@ public class PosSale extends Fragment {
                         totalval[0] = totalval[0] + price * q;
                         saleVal[0] = totalval[0] * 0.15;
                         payableVal[0] = totalval[0] + saleVal[0];
-                        sale_total.setText("" + totalval[0]);
-                        sale_tax.setText("" + saleVal[0]);
-                        sale_quantity2.setText("" + payableVal[0]);
+
                     }
                 }
             }
@@ -127,8 +128,13 @@ public class PosSale extends Fragment {
         paidBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                if(sale_code.getText().toString().isEmpty() || quantity.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(), "please fill the values", Toast.LENGTH_SHORT).show();
+                }else {
+                    sale_total.setText("" + totalval[0]);
+                    sale_tax.setText("" + saleVal[0]);
+                    sale_quantity2.setText("" + payableVal[0]);
+                }
             }
         });
 
