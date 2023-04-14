@@ -72,9 +72,10 @@ public class PosSale extends Fragment {
                     error=false;
                 }
                 else {
-                    String itemName = db.searchItem(sale_code.getText().toString());
+                    String c = sale_code.getText().toString();
+                    String itemName = db.searchItem(c);
+
                     if (itemName != null && error) {
-                        String c = sale_code.getText().toString();
                         int quen = Integer.parseInt(db.addItem1(c));
                         double price = Double.parseDouble(db.addItem2(c));
                         sale_item.setText("Item:"+itemName + "   unit:"+quen+"   Unit Price:"+price);
@@ -82,6 +83,7 @@ public class PosSale extends Fragment {
                         sale_item.setText("");
                         Toast.makeText(getContext(), "Item not found", Toast.LENGTH_SHORT).show();
                     }
+
                 }
             }
         });
