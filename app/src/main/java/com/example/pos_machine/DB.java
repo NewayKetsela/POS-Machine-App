@@ -24,7 +24,7 @@ public class DB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-       db.execSQL("drop Table if exists ItemInformation");
+        db.execSQL("drop Table if exists ItemInformation");
     }
 
     public Boolean insertInfo(String code, String item, int unit, String unit_price)
@@ -135,4 +135,3 @@ public class DB extends SQLiteOpenHelper {
 
 
 }
-

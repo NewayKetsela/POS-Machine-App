@@ -42,8 +42,8 @@ public class Model {
         return _item;
     }
     public double getCost() {
-      cost = Model.this.unit_price*Model.this.quantity;
-      this.getTotal(cost);
+        cost = Model.this.unit_price*Model.this.quantity;
+        this.getTotal(cost);
         return cost;
     }
 
