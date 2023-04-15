@@ -97,8 +97,11 @@ public class PosSale extends Fragment {
             @Override
             public void onClick(View v) {
                 boolean error=true;
-
-                if(quantity.getText().toString().isEmpty()){
+                if(!(quantity.getText().toString().isEmpty()) && sale_code.getText().toString().isEmpty() ){
+                    Toast.makeText(getActivity(), "please fill code values", Toast.LENGTH_SHORT).show();
+                    error=false;
+                }
+                else if(quantity.getText().toString().isEmpty() && error){
                     Toast.makeText(getActivity(), "please fill the values", Toast.LENGTH_SHORT).show();
                     error=false;
                 }
