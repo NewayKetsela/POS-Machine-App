@@ -43,7 +43,7 @@ public class PosRegister extends Fragment {
                         if (isInserted == true) {
                            Toast.makeText(getActivity(), "New Data is Saved", Toast.LENGTH_SHORT).show();
                        } else
-                            Toast.makeText(getActivity(), "Data  is not inserted", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Code already exist", Toast.LENGTH_SHORT).show();
                 }
             }
         });
